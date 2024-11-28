@@ -112,6 +112,7 @@ At router
 
 ### for per-packet load balancer
 
+At router: 
 set the tagging and forwarding rules for per packet forwarding
 
 	#flush first! 
@@ -127,6 +128,7 @@ to display
 
 ### for per-flow load balancer
 
+At router: 
 set the tagging and forwarding rules for flow hashing
 
 	#flush first! 
