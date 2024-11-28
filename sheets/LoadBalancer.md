@@ -46,8 +46,10 @@ At router: set the bottlencek
 	sudo tc qdisc del dev $IF_P1 root  
 	sudo tc qdisc add dev $IF_P1 root handle 1: htb default 3  
 	sudo tc class add dev $IF_P1 parent 1:2 classid 1:3 htb rate 50Mbit quantum 1514
-	sudo tc qdisc add dev $IF_P1 parent 1:3 handle 3: netem delay 7ms #3ms
-	sudo tc qdisc add dev $IF_P1 parent 3: bfifo limit 1mbit # 20ms fully backed at 50Mbps
+	sudo tc qdisc add dev $IF_P1 parent 1:3 bfifo limit 1mbit 	
+	# was testing reordering at unequal paths - to also do so, ignore the line above and instead run the two lines below
+	#sudo tc qdisc add dev $IF_P1 parent 1:3 handle 3: netem delay 7ms #3ms
+	#sudo tc qdisc add dev $IF_P1 parent 3: bfifo limit 1mbit # 20ms fully backed at 50Mbps
 
 
 	sudo tc qdisc del dev $IF_P2 root  
