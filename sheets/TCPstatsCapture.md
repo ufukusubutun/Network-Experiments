@@ -2,24 +2,29 @@
 
 Capture detailed TCP statistics thru trace-cmd
 
+become root
 
- become root
 	sudo su
 
- one time only
+one time only
+
 	apt install trace-cmd
 
- repeat on each reboot
+repeat on each reboot
+
 	echo 1 > /sys/kernel/debug/tracing/events/tcp/tcp_probe/enable
 
- before each connection
+before each connection
+
 	trace-cmd record --date -e tcp_probe
 
- after flow ends, use Ctrl+C to stop recording
- then play back with
+after flow ends, use Ctrl+C to stop recording
+then play back with
+
 	trace-cmd report
 
- to write to a file 
+to write to a file 
+
 	trace-cmd report > expname-log.txt
 
 
