@@ -1,5 +1,7 @@
 # Turn Segmentation Offloading Off
 
+Credits - Fraida Fund
+
 TURN SEGMENTATION OFFLOADING OFF
 
 	echo TURN SEGMENTATION OFFLOADING OFF
@@ -14,3 +16,4 @@ TURN SEGMENTATION OFFLOADING OFF
 	  sudo ethtool -K $i tso off
 	  sudo ethtool -K $i ufo off
 	done
+
