@@ -30,7 +30,7 @@ At client: set the fwd bottlencek
 	sudo tc qdisc del dev $IF root  
 	sudo tc qdisc add dev $IF root handle 1: htb default 3  
 	sudo tc class add dev $IF parent 1:2 classid 1:3 htb rate 130Mbit  
-	sudo tc qdisc add dev $IF parent 1:3 bfifo limit  26mbit 
+	sudo tc qdisc add dev $IF parent 1:3 bfifo limit  2.6mbit 
 
 
 At router: set the bottlencek
@@ -85,12 +85,12 @@ At aggr: add reverse btlnck
 	sudo tc qdisc del dev $IF_P1_BACK root  
 	sudo tc qdisc add dev $IF_P1_BACK root handle 1: htb default 3  
 	sudo tc class add dev $IF_P1_BACK parent 1:2 classid 1:3 htb rate 50Mbit  
-	sudo tc qdisc add dev $IF_P1_BACK parent 1:3 bfifo limit 10mbit 
+	sudo tc qdisc add dev $IF_P1_BACK parent 1:3 bfifo limit 1mbit 
 
 	sudo tc qdisc del dev $IF_P2_BACK root  
 	sudo tc qdisc add dev $IF_P2_BACK root handle 1: htb default 3  
 	sudo tc class add dev $IF_P2_BACK parent 1:2 classid 1:3 htb rate 50Mbit  
-	sudo tc qdisc add dev $IF_P2_BACK parent 1:3 bfifo limit 10mbit 
+	sudo tc qdisc add dev $IF_P2_BACK parent 1:3 bfifo limit 1mbit 
 
 
 
@@ -101,7 +101,7 @@ At server: add reverse btlnck
 	sudo tc qdisc del dev $IF_BACK root  
 	sudo tc qdisc add dev $IF_BACK root handle 1: htb default 3  
 	sudo tc class add dev $IF_BACK parent 1:2 classid 1:3 htb rate 130Mbit  
-	sudo tc qdisc add dev $IF_BACK parent 1:3 bfifo limit  26mbit 
+	sudo tc qdisc add dev $IF_BACK parent 1:3 bfifo limit  2.6mbit 
 
 
 

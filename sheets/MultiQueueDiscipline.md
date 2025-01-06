@@ -1,4 +1,4 @@
-# Building a Simple Load Balancer
+# Building a Multi Queue Discipline 
 
 Load Balancer implemented by forwarding packets to queues by filtering and marking.
 
